@@ -23,8 +23,8 @@ Use OOP for modular code, encapsulation, reusability and readability:
     Choose participant.
     Find "BOOK" button and click.
     Find "SEND CODE" button and click.
-
-
+* book_with_code: Enter verification code.
+    Finish booking.
 """
 
 class WebScraper:
@@ -53,31 +53,20 @@ class WebScraper:
     def choose_time(self, optimal_time, participant):
         choose_time = self.driver.find_element(By.XPATH, f'//div[@class="swiper-slide"]//p[text()="{optimal_time}"]')
         choose_time.click()
-        open_participant = self.driver.find_element(By.XPATH, f'//div[@class="flex flex-col text-left"]//p[text()="Select participant"]')
+        open_participant = self.driver.find_element(By.XPATH, '//div[@class="flex flex-col text-left"]//p[text()="Select participant"]')
         open_participant.click()
-        choose_participant = self.driver.find_element(By.ID, f'headlessui-listbox-option-:r6u:')
+        choose_participant = self.driver.find_element(By.ID, 'headlessui-listbox-option-:r6u:')
         choose_participant.click()
         book_button = self.driver.find_element(By.XPATH, '//button[contains(@class, "uppercase text-sm font-bold border-2")]')
         book_button.click()
         send_code = self.driver.find_element(By.XPATH, '//button[contains(@class, "uppercase text-sm font-bold border-2")]')
         send_code.click()
 
-url = "url.com"
-email = ""
-rec_password = ""
-two_days_date = "Day, Month Xth, Year"
-optimal_time = "0:00 XX"
-participant = ""
+    def book_with_code(self, verification_code):
+        enter_code = self.driver.find_element(By.ID, 'totp')
+        confirm = self.driver.find_element(By.XPATH, '//button[contains(@class, "uppercase text-sm font-bold border-2")]')
+        enter_code.send_keys(verification_code)
+        confirm.click()
 
-scraper = WebScraper()
-scraper.navigator(url)
-scraper.login(email, rec_password)
-scraper.choose_date(two_days_date)
-scraper.choose_time(optimal_time, participant)
-
-
-print("so far so good")
-
-time.sleep(120)
 #<div class="text-sm font-medium text-neutral-900">Log In</div>
 #//*[@id="__next"]/main/div[2]/div/div/div[3]/button[1]/div
