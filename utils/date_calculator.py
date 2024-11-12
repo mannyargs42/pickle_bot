@@ -1,6 +1,17 @@
 from datetime import datetime, timedelta
 
-def format_date(num_days_ahead)
+def format_date(num_days_ahead):
+    """
+    Step 3 of the project guide: Implement date_calculator.py
+    
+    Takes a variable for number of days from now and returns it as a formatted
+    string that can be read by Selenium to interact with webpage content.
+
+    num_days_ahead must be a positive integer.
+
+    Expected output should look like "Monday, November 11th, 2024" with the
+    "th" suffix adjusting as need for certain dates.
+    """
     future_date = datetime.now() + timedelta(days=num_days_ahead)
     formatted_future_date = future_date.strftime("%A, %B %d, %Y")
 

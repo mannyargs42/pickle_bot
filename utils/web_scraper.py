@@ -6,7 +6,7 @@ import time
 # from webdriver_manager.chrome import ChromeDriverManager
 
 """
-Step 2 of the project guide: Implement Web Scraping-
+Step 4 of the project guide: Implement Web Scraping-
 Use Selenium to automate browser interactions-
 Navigate to target website.
 
@@ -67,6 +67,3 @@ class WebScraper:
         confirm = self.driver.find_element(By.XPATH, '//button[contains(@class, "uppercase text-sm font-bold border-2")]')
         enter_code.send_keys(verification_code)
         confirm.click()
-
-#<div class="text-sm font-medium text-neutral-900">Log In</div>
-#//*[@id="__next"]/main/div[2]/div/div/div[3]/button[1]/div
