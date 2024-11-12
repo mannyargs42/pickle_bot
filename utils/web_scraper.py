@@ -55,11 +55,11 @@ class WebScraper:
         choose_time.click()
         open_participant = self.driver.find_element(By.XPATH, '//div[@class="flex flex-col text-left"]//p[text()="Select participant"]')
         open_participant.click()
-        choose_participant = self.driver.find_element(By.ID, 'headlessui-listbox-option-:r6u:')
+        choose_participant = self.driver.find_element(By.XPATH, f'//div[@class="flex flex-col" and text()="{participant}"]')
         choose_participant.click()
-        book_button = self.driver.find_element(By.XPATH, '//button[contains(@class, "uppercase text-sm font-bold border-2")]')
+        book_button = self.driver.find_element(By.XPATH, '//button[contains(@class, "uppercase text-sm") and text()="Book"]')
         book_button.click()
-        send_code = self.driver.find_element(By.XPATH, '//button[contains(@class, "uppercase text-sm font-bold border-2")]')
+        send_code = self.driver.find_element(By.XPATH, '//button[contains(@class, "uppercase text-sm") and text()="Send Code"]')
         send_code.click()
 
     def book_with_code(self, verification_code):
