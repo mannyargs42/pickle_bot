@@ -64,6 +64,6 @@ class WebScraper:
 
     def book_with_code(self, verification_code):
         enter_code = self.driver.find_element(By.ID, 'totp')
-        confirm = self.driver.find_element(By.XPATH, '//button[contains(@class, "uppercase text-sm font-bold border-2")]')
+        confirm = self.driver.find_element(By.XPATH, '//button[contains(@class, "uppercase text-sm") and text()="Confirm"]')
         enter_code.send_keys(verification_code)
         confirm.click()
